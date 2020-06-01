@@ -96,7 +96,10 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: (){
                 setState(() {
-                  ScoreSigns.add(Icon(Icons.clear));
+                  ScoreSigns.add(Icon(
+                      Icons.clear,
+                      color: Colors.red,
+                  ));
 
                 });
               },
