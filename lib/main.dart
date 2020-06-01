@@ -36,6 +36,7 @@ class _QuizPageState extends State<QuizPage> {
     'There are more moves in chess than there are atoms in the universe.', //true
     'We eat an average of 4 house flies (not spiders) in our sleep every year.' //false
   ];
+  List<bool> answers = [true,true,false,true,false];
 int i = 0;
   @override
   Widget build(BuildContext context) {
