@@ -29,10 +29,7 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
 
   List<Icon> ScoreSigns= [
-    Icon(
-        Icons.check,
-        color: Colors.green,
-    )
+
   ];
 
   @override
