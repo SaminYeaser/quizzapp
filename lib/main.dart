@@ -56,7 +56,7 @@ int i = 0;
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                quizeBrain.questionList[i].questions,
+                quizeBrain.questionPattern(i),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -80,7 +80,7 @@ int i = 0;
                 ),
               ),
               onPressed: (){
-                bool correctAnswer = quizeBrain.questionList[i].questionAnswer;
+                bool correctAnswer = quizeBrain.questionAnswer(i);
                 if(correctAnswer == true){
                   print('User is correct');
                 }else{
@@ -114,7 +114,7 @@ int i = 0;
               ),
               onPressed: (){
 
-                bool correctAnswer = quizeBrain.questionList[i].questionAnswer;
+                bool correctAnswer = quizeBrain.questionAnswer(i);
                 if(correctAnswer == false){
                   print('User is correct');
                 }else{
