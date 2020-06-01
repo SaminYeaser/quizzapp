@@ -74,6 +74,12 @@ int i = 0;
                 ),
               ),
               onPressed: (){
+                bool correctAnswer = answers[i];
+                if(correctAnswer == true){
+                  print('User is correct');
+                }else{
+                  print('User is incorrect');
+                }
                 setState(() {
                   ScoreSigns.add(Icon(
                     Icons.check,
@@ -101,6 +107,14 @@ int i = 0;
                 ),
               ),
               onPressed: (){
+
+                bool correctAnswer = answers[i];
+                if(correctAnswer == false){
+                  print('User is correct');
+                }else{
+                  print('User is incorrect');
+                }
+
                 setState(() {
                   ScoreSigns.add(Icon(
                       Icons.clear,
