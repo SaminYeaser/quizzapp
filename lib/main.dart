@@ -101,9 +101,8 @@ class _QuizPageState extends State<QuizPage> {
           ),
         ),
         Row(
-          children: <Widget>[
-            ScoreSigns
-          ,
+          children: ScoreSigns
+
         )
       ],
     );
