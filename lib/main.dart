@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:quizzapp/quesions.dart';
-import 'quesions.dart';
+import 'question.dart';
+
+QuizeBrain quizeBrain = QuizeBrain();
 
 void main(){
   runApp(QuizApp());
@@ -30,6 +31,8 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
 
+
+
   List<Icon> ScoreSigns= [];
 //  List<String> questions = [
 //    'Lighters were invented before matches.', //true
@@ -39,13 +42,7 @@ class _QuizPageState extends State<QuizPage> {
 //    'We eat an average of 4 house flies (not spiders) in our sleep every year.' //false
 //  ];
 //  List<bool> answers = [true,true,false,true,false];
-  List<Questions> questionList = [
-    Questions(q: 'Lighters were invented before matches.', a: true),
-    Questions(q: 'The Spanish national anthem has no words.', a: true),
-    Questions(q: 'Orangutans sleep standing up.', a: false),
-    Questions(q: 'There are more moves in chess than there are atoms in the universe.', a: true),
-    Questions(q: 'We eat an average of 4 house flies (not spiders) in our sleep every year.', a: false),
-  ];
+
 int i = 0;
   @override
   Widget build(BuildContext context) {
@@ -59,7 +56,7 @@ int i = 0;
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                questionList[i].questions,
+                quizeBrain.questionList[i].questions,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -83,7 +80,7 @@ int i = 0;
                 ),
               ),
               onPressed: (){
-                bool correctAnswer = questionList[i].questionAnswer;
+                bool correctAnswer = quizeBrain.questionList[i].questionAnswer;
                 if(correctAnswer == true){
                   print('User is correct');
                 }else{
@@ -117,7 +114,7 @@ int i = 0;
               ),
               onPressed: (){
 
-                bool correctAnswer = questionList[i].questionAnswer;
+                bool correctAnswer = quizeBrain.questionList[i].questionAnswer;
                 if(correctAnswer == false){
                   print('User is correct');
                 }else{
