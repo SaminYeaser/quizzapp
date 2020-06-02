@@ -34,6 +34,19 @@ class _QuizPageState extends State<QuizPage> {
 
 
   List<Icon> ScoreSigns= [];
+
+  void userCheckedAnswer(bool answer){
+    setState(() {
+    bool correctAnswer = quizeBrain.questionAnswer();
+    if(answer == correctAnswer){
+      ScoreSigns.add(Icon(Icons.check, color: Colors.green,));
+    }else{
+      ScoreSigns.add(Icon(Icons.clear, color: Colors.red,));
+    }
+
+      quizeBrain.increment();
+    });
+  }
 //  List<String> questions = [
 //    'Lighters were invented before matches.', //true
 //    'The Spanish national anthem has no words.', //true
@@ -43,7 +56,7 @@ class _QuizPageState extends State<QuizPage> {
 //  ];
 //  List<bool> answers = [true,true,false,true,false];
 
-int i = 0;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -56,7 +69,7 @@ int i = 0;
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                quizeBrain.questionPattern(i),
+                quizeBrain.questionPattern(),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -80,21 +93,7 @@ int i = 0;
                 ),
               ),
               onPressed: (){
-                bool correctAnswer = quizeBrain.questionAnswer(i);
-                if(correctAnswer == true){
-                  print('User is correct');
-                }else{
-                  print('User is incorrect');
-                }
-                setState(() {
-                  ScoreSigns.add(Icon(
-                    Icons.check,
-                    color: Colors.green,
-                  ));
-                  setState(() {
-                    i++;
-                  });
-                });
+              userCheckedAnswer(true);
               },
             ),
           ),
@@ -113,23 +112,8 @@ int i = 0;
                 ),
               ),
               onPressed: (){
+                userCheckedAnswer(false);
 
-                bool correctAnswer = quizeBrain.questionAnswer(i);
-                if(correctAnswer == false){
-                  print('User is correct');
-                }else{
-                  print('User is incorrect');
-                }
-
-                setState(() {
-                  ScoreSigns.add(Icon(
-                      Icons.clear,
-                      color: Colors.red,
-                  ));
-                  setState(() {
-                    i++;
-                  });
-                });
               },
             ),
           ),

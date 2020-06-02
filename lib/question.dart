@@ -1,5 +1,6 @@
 import 'quesions.dart';
 class QuizeBrain{
+  int _i = 0;
   List<Questions> _questionList = [
     Questions(q: 'Lighters were invented before matches.', a: true),
     Questions(q: 'The Spanish national anthem has no words.', a: true),
@@ -8,10 +9,16 @@ class QuizeBrain{
     Questions(q: 'We eat an average of 4 house flies (not spiders) in our sleep every year.', a: false),
   ];
 
-  String questionPattern(int number){
-    return _questionList[number].questions;
+  void increment(){
+    if(_i < _questionList.length-1) {
+      _i++;
+    }
   }
-  bool questionAnswer(int number){
-    return _questionList[number].questionAnswer;
+  String questionPattern(){
+    return _questionList[_i].questions;
   }
+  bool questionAnswer(){
+    return _questionList[_i].questionAnswer;
+  }
+
 }
